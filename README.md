@@ -10,15 +10,11 @@ Ele foi desenvolvido para a atividade da disciplina, com foco em mostrar na prá
 
 Simular um módulo de estoque de um ERP, permitindo:
 
-Cadastro de produtos
-
-Exclusão de produtos
-
-Movimentação de estoque (entrada e saída)
-
-Relatórios gerenciais
-
-Dashboard com gráficos de acompanhamento
+ - Cadastro de produtos
+ - Exclusão de produtos
+ - Movimentação de estoque (entrada e saída)
+ - Relatórios gerenciais
+ - Dashboard com gráficos de acompanhamento
 
 Tudo isso rodando em modo texto, direto no terminal.
 
@@ -28,122 +24,111 @@ O sistema foi pensado para refletir funcionalidades típicas de um módulo de es
 
 Cadastro de produtos
 
-Nome
-
-Categoria
-
-Preço
-
-Quantidade em estoque
-
-Estoque mínimo
+ - Nome
+ - Categoria
+ - Preço
+ - Quantidade em estoque
+ - Estoque mínimo
 
 Movimentação de estoque
 
-Entrada (aumenta a quantidade)
-
-Saída (baixa estoque, com validação para não ficar negativo)
+ - Entrada (aumenta a quantidade)
+ - Saída (baixa estoque, com validação para não ficar negativo)
 
 Relatórios gerenciais
 
-Lista de produtos
-
-Produtos com estoque baixo
-
-Giro de estoque
-
-Custo de manutenção de estoque
-
-Tempo de reposição
+ - Lista de produtos
+ - Produtos com estoque baixo
+ - Giro de estoque
+ - Custo de manutenção de estoque
+ - Tempo de reposição
 
 Dashboards (gráficos)
 
-Evolução do estoque ao longo do tempo
-
-Comparação de estoque por categoria
-
-Curva ABC de custos de estoque
+ - Evolução do estoque ao longo do tempo
+ - Comparação de estoque por categoria
+ - Curva ABC de custos de estoque
 
 🛠️ Tecnologias utilizadas
 
-Linguagem: Python
+- Linguagem: Python
 
-Banco de dados: SQLite (sqlite3)
+- Banco de dados: SQLite (sqlite3)
 
-Gráficos: Matplotlib (matplotlib.pyplot)
+- Gráficos: Matplotlib (matplotlib.pyplot)
 
-Outras libs da própria linguagem:
+- Outras libs da própria linguagem:
 
-datetime (datas e cálculo de tempo de reposição)
+   - datetime (datas e cálculo de tempo de reposição)
 
-collections.defaultdict (organização de dados para gráficos)
+   - collections.defaultdict (organização de dados para gráficos)
 
 📂 Estrutura básica do sistema
 
 As principais partes do código são:
 
-Conexão e criação do banco (reservatorio.db)
+- Conexão e criação do banco (reservatorio.db)
 
-Tabela reservatorio: produtos cadastrados
+- Tabela reservatorio: produtos cadastrados
 
-Tabela historico_estoque: histórico de quantidades por período (usado nos gráficos)
+- Tabela historico_estoque: histórico de quantidades por período (usado nos gráficos)
 
 Função menu()
 
-Menu principal:
+- Menu principal:
 
-1 Cadastrar produto
+  - 1 Cadastrar produto
 
-2 Excluir produto
+  - 2 Excluir produto
 
-3 Relatórios de produtos cadastrados
+  - 3 Relatórios de produtos cadastrados
 
-0 Sair do sistema
+  - 0 Sair do sistema
 
 Cadastro de produto
 
-Valida:
+- Valida:
 
-Nome
+    - Nome
 
-Categoria
+    - Categoria
 
-Preço (real positivo)
+    - Preço (real positivo)
 
-Quantidade (inteiro ≥ 0)
+    - Quantidade (inteiro ≥ 0)
 
-Estoque mínimo (inteiro ≥ 0)
+    - Estoque mínimo (inteiro ≥ 0)
 
-Salva no banco de dados.
+- Salva no banco de dados.
 
 Exclusão de produto
 
-Busca pelo ID
+  - Busca pelo ID
 
-Confirma com o usuário antes de excluir
+  - Confirma com o usuário antes de excluir
 
-Remove também registros ligados no histórico de estoque.
+  - Remove também registros ligados no histórico de estoque.
 
 Relatórios (relatorios())
 
-Listar estoque (com total por item e alerta de estoque baixo)
+  - Listar estoque (com total por item e alerta de estoque baixo)
 
-Atualizar quantidade (entrada e saída)
+  - Atualizar quantidade (entrada e saída)
 
-Mostrar produtos com estoque abaixo do mínimo
+  - Mostrar produtos com estoque abaixo do mínimo
 
-Relatórios gerenciais:
+  - Relatórios gerenciais:
 
-Giro de estoque
+    - Giro de estoque
 
-Custo de manutenção
+    - Custo de manutenção
 
-Tempo de reposição
+    - Tempo de reposição
 
 Gráficos (graficos())
 
-Evolução do estoque por produto (linha)
+  - Evolução do estoque por produto (linha)
 
-Comparação de categorias (barras)
+  - Comparação de categorias (barras)
 
-Curva ABC de custos (linha com marcação de 80% e 95%)
+  - Curva ABC de custos (linha com marcação de 80% e 95%)
